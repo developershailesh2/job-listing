@@ -13,7 +13,7 @@ export function HomePage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/get-data")
+      .get("http://localhost:27017/get-data")
       .then((response) => {
         setJobs(response.data);
       })
