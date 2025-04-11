@@ -9,8 +9,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const connectionString =
-  "mongodb://mongo:buBxSzRaLrVBdbetddmYKFJRPpXmlXBl@crossover.proxy.rlwy.net:55189";
+const connectionString = "mongodb://127.0.0.1:27017";
 
 app.get("/get-data", (req, res) => {
   mongoClient.connect(connectionString).then((clientObj) => {
