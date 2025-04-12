@@ -13,8 +13,10 @@ export function HomePage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:27017/get-data")
+      .get(`${import.meta.env.VITE_API_URL}/get-data`)
       .then((response) => {
+        console.log("API Response:", response.data);
+        console.log(import.meta.env)
         setJobs(response.data);
       })
       .catch((error) => {
@@ -133,14 +135,14 @@ export function HomePage() {
                 </div>
                 <hr className="h-1 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 border-0 rounded my-4" />
 
-                <buttonn
+                <button
                   onClick={QuickApply}
                   className="flex items-center text-center w-40 border-2 gap-2 px-4 py-4  rounded-lg 
                                 cursor-pointer bg-purple-800 text-white font-bold hover:bg-purple-900 transition duration-300"
                 >
                   <FaBolt size={16} className="text-white" />
                   Quick Apply
-                </buttonn>
+                </button>
               </div>
             </>
           ) : (
