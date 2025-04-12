@@ -1,15 +1,17 @@
+require('dotenv').config();
+
 var mongoClient = require("mongodb").MongoClient;
 var express = require("express");
 var cors = require("cors");
 
 var app = express();
-const PORT = 27017;
+const PORT = process.env.PORT || 5050;
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const connectionString = "mongodb://127.0.0.1:27017";
+const connectionString = process.env.MONGO_URI;
 
 app.get("/get-data", (req, res) => {
   mongoClient.connect(connectionString).then((clientObj) => {
